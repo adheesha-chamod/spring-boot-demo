@@ -14,19 +14,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("")
-    public List<UserDTO> getUsers() {
-        return userService.getAllUsers();
-    }
-
     @PostMapping("")
     public UserDTO addUser(@RequestBody UserDTO userDTO) {
         return userService.addUser(userDTO);
     }
 
-    @PutMapping("/update-user")
-    public String updateUser() {
-        return "Update user";
+    @GetMapping("")
+    public List<UserDTO> getUsers() {
+        return userService.getAllUsers();
+    }
+
+    @PutMapping("")
+    public UserDTO updateUser(@RequestBody UserDTO userDTO) {
+        return userService.updateUser(userDTO);
     }
 
     @DeleteMapping("/delete-user")
