@@ -1,19 +1,25 @@
 package com.example.springbootdemo.controller;
 
+import com.example.springbootdemo.dto.UserDTO;
+import com.example.springbootdemo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
 @CrossOrigin
 public class UserController {
-    @GetMapping("/get-user")
-    public String getUser() {
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("")
+    public String getUsers() {
         return "Get user";
     }
 
-    @PostMapping("/add-user")
-    public String addUser() {
-        return "Add new user";
+    @PostMapping("")
+    public UserDTO addUser(@RequestBody UserDTO userDTO) {
+        return userService.addUser(userDTO);
     }
 
     @PutMapping("/update-user")
