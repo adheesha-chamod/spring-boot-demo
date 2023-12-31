@@ -3,13 +3,14 @@ package com.example.springbootdemo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserDTO {
-    private int id;
-    private String name;
-    private String email;
-    private String password;
+public class ResponseDTO {
+    private String code;
+    private String message;
+    private Object content;
 }
